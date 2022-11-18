@@ -15,7 +15,6 @@ export class AuthComponent implements OnInit {
   errMsg: string = "";
   authObserv: Observable<AuthResponseData>;
 
-
   constructor(
     private auth: AuthService,
     private router: Router,
@@ -28,7 +27,32 @@ export class AuthComponent implements OnInit {
     this.isLoginMode = !this.isLoginMode;
   }
 
+  onAuthFormSubmit(form: NgForm) {
+    console.log("Running submit loging form...");
+    console.log(form.value);
 
+    if (!form.valid) {
+      return;
+    }
 
+    const { email, password } = form.value;
 
+    if (this.isLoginMode) {
+      this.authObserv = this.auth.login(email, password)
+    } else {
+      this.authObserv = this.auth.register(email, password)
+    }
+
+    this.authObserv.subscribe({
+      next: (res) => {
+        console.log("Auth Response Success: ", res)
+        this.router.navigate(['gamehelf']);
+      },
+      error: (err) => {
+        console.log("Auth Response Error", err);
+        this.errMsg = err.message;
+      },
+    })
+    form.reset();
+  }
 }
