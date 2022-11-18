@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg mb-4">
+  <a id="brand" class="navbar-brand brand">BG Organizer</a>
+
+  <!-- dropdown toggle  -->
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarToggler"
+    aria-label="Toggle navigation"
+    aria-controls="navbarToggler"
+    aria-expanded="false"
+    (click)="collapsed = !collapsed"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- part to be dropped-down -->
+  <div
+    class="collapse navbar-collapse"
+    id="navbarToggler"
+    [class.collapse]="collapsed"
+    (window:resize)="collapsed=true"
+  >
+    <ul class="navbar-nav mr-auto-mt-2 mt-lg-0">
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a class="nav-link" [routerLink]="['/gameshelf']"
+        routerLinkActive="active"></a>
+      </li>
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a class="nav-link" [routerLink]="['/wishlist']"
+        routerLinkActive="active"></a>
+      </li>
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a class="nav-link" [routerLink]="['/bgglibrary']"
+        routerLinkActive="active"></a>
+      </li>
+      <li class="nav-item" *ngIf="!isAuthenticated">
+        <a class="nav-link" [routerLink]="['/authpage']"
+        routerLinkActive="active">Sign In</a>
+      </li>
+      <li class="nav-item" *ngIf="isAuthenticated">
+        <a class="nav-link" [routerLink]="['/authpage']"
+        routerLinkActive="active">Sign Out</a>
+      </li>
+    </ul>
+  </div>
+
+
+
+</nav>
