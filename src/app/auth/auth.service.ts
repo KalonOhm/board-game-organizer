@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { User } from './user.model';
+
 
 export interface UserData {
   email: string;
@@ -36,7 +38,7 @@ export class AuthService {
   constructor() {}
 
   register(email: string, password: string) {
-    
+
   }
 
   login(email: string, password: string) {}

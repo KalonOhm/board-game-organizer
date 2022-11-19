@@ -17,6 +17,7 @@ import { NavigationComponent } from './shared/navigation/navigation.component';
 import { NotificationComponent } from './shared/notification/notification.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     WishlistComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
