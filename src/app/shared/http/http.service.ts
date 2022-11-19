@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { GameLibraryService } from 'src/app/game-library/game-library.service';
+import { Game } from '../game/game.model';
+import { tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -24,7 +27,7 @@ export class HttpService {
 
   fetchGamesFromFirebase() {
     return (
-      this.http.get < Game ||
+      this.http.get<Game[] |
       null >
         (this.firebaseRootUrl, {}).pipe(
           tap((games) => {
