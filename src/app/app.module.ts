@@ -16,8 +16,10 @@ import { GameComponent } from './shared/game/game.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { NotificationComponent } from './shared/notification/notification.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptorService } from './auth/auth-interceptor.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -40,6 +42,9 @@ import { AuthInterceptorService } from './auth/auth-interceptor.service';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
 
   ],
   providers: [
