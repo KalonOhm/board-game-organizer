@@ -16,6 +16,8 @@ import { GameComponent } from './shared/game/game.component';
 import { NavigationComponent } from './shared/navigation/navigation.component';
 import { NotificationComponent } from './shared/notification/notification.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthInterceptorService } from './auth/auth-interceptor.service';
 
 
 @NgModule({
@@ -40,7 +42,13 @@ import { WishlistComponent } from './wishlist/wishlist.component';
     BrowserModule,
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorService,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

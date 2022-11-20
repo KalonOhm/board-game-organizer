@@ -24,23 +24,23 @@
   >
     <ul class="navbar-nav mr-auto-mt-2 mt-lg-0">
       <li class="nav-item" *ngIf="isAuthenticated">
-        <a class="nav-link" [routerLink]="['/gameshelf']"
+        <a class="nav-link" routerLink="/gameshelf"
         routerLinkActive="active"></a>
       </li>
       <li class="nav-item" *ngIf="isAuthenticated">
-        <a class="nav-link" [routerLink]="['/wishlist']"
+        <a class="nav-link" routerLink="/wishlist"
         routerLinkActive="active"></a>
       </li>
       <li class="nav-item" *ngIf="isAuthenticated">
-        <a class="nav-link" [routerLink]="['/bgglibrary']"
+        <a class="nav-link" routerLink="/bgglibrary"
         routerLinkActive="active"></a>
       </li>
       <li class="nav-item" *ngIf="!isAuthenticated">
-        <a class="nav-link" [routerLink]="['/authpage']"
+        <a class="nav-link" routerLink="/authpage"
         routerLinkActive="active">Sign In</a>
       </li>
       <li class="nav-item" *ngIf="isAuthenticated">
-        <a class="nav-link" [routerLink]="['/authpage']"
+        <a class="nav-link" routerLink="/authpage"
         routerLinkActive="active">Sign Out</a>
       </li>
     </ul>

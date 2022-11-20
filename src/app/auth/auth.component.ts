@@ -46,7 +46,7 @@ export class AuthComponent implements OnInit {
     this.authObserv.subscribe({
       next: (res) => {
         console.log("Auth Response Success: ", res)
-        this.router.navigate(['gamehelf']);
+        this.router.navigate(['gameshelf']);
       },
       error: (err) => {
         console.log("Auth Response Error", err);
