@@ -13,7 +13,7 @@ import { AuthResponseData, AuthService } from './auth.service';
 export class AuthComponent implements OnInit {
   isLoginMode = true;
   errMsg: string = "";
-  authObserv: Observable<AuthResponseData>;
+  authObserv: Observable<AuthResponseData> = {};
 
   constructor(
     private auth: AuthService,

@@ -2,9 +2,7 @@
   <div class="col-xs-12 col-md-6 offset-md-3">
     <form #authFormRef="ngForm" (ngSubmit)="onAuthFormSubmit(authFormRef)">
       <div class="form-group">
-        <label for="email">
-          Email
-        </label>
+        <label for="email"> Email </label>
         <input
           type="email"
           name="email"
@@ -16,9 +14,7 @@
       </div>
 
       <div class="form-group">
-        <label for="password">
-          Password
-        </label>
+        <label for="password"> Password </label>
         <input
           type="password"
           name="password"
@@ -26,15 +22,31 @@
           ngModel
           required
           class="form-control"
+          minlength="10"
         />
       </div>
 
-      <div class="form-group">
-        <button class="btn btn-secondary mr-3" type="submit" [disabled]="!authFormRef.valid"> {{ isLoginMode ? "Sign In" : "Register" }} </button>
-        <button class="btn btn-secondary mr-3" type="submit" (click)="onSwitchAuthMode()"> Switch to {{ isLoginMode ? "Register" : "Sign In" }} </button>
+      <div>
+        <button
+          class="btn btn-secondary mr-3"
+          type="submit"
+          [disabled]="!authFormRef.valid"
+        >
+          {{ isLoginMode ? "Sign In" : "Register" }}
+        </button>
+        |
+        <button
+          class="btn btn-secondary mr-3"
+          type="submit"
+          (click)="onSwitchAuthMode()"
+        >
+          Switch to {{ isLoginMode ? "Register" : "Sign In" }}
+        </button>
       </div>
     </form>
 
-    <p class="alert alert-danger mt-3" *ngIf="errMsg.length"> {{ errMsg }} </p>
+    <p class="alert alert-danger mt-3" *ngIf="errMsg.length > 0">
+      {{ errMsg }}
+    </p>
   </div>
 </div>

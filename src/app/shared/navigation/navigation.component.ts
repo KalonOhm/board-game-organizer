@@ -7,7 +7,7 @@ import { AuthService } from 'src/app/auth/auth.service';
   templateUrl: './navigation.component.html',
   styleUrls: ['./navigation.component.css']
 })
-export class NavigationComponent implements OnInit {
+export class NavigationComponent implements OnInit, OnDestroy {
   collapsed = true;
   show: boolean = false;
   isAuthenticated: boolean = false;
@@ -32,6 +32,6 @@ export class NavigationComponent implements OnInit {
   }
 
   onFetchData() {
-    this.httpService.fetchGamesFromFirebase();
+    this.httpService.fetchGamesFromFirebase().subscribe();
   }
 }
